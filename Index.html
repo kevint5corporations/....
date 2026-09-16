@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Kevin T5 Corporation — Diseño y creación de páginas web profesionales para negocios, con soporte mensual incluido.">
+
+    <meta name="author" content="Kevin Hernández Peña">
+
+    <title>Kevin T5 Corporation | Diseño Web Profesional</title>
+
+    <style>
+        /* =========================
+           RESET
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080a0f;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        /* =========================
+           VARIABLES
+        ========================== */
+
+        :root {
+            --background: #080a0f;
+            --background-2: #0d1119;
+            --card: rgba(255, 255, 255, 0.045);
+            --border: rgba(255, 255, 255, 0.09);
+            --white: #ffffff;
+            --gray: #a8afbd;
+            --accent: #6c63ff;
+            --accent-2: #8b7cff;
+            --success: #25d366;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 6%;
+            background: rgba(8, 10, 15, 0.75);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 14px 6%;
+            background: rgba(8, 10, 15, 0.94);
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c5cad4;
+            font-size: 0.95rem;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-button {
+            padding: 11px 20px;
+            border-radius: 30px;
+            background: white;
+            color: #080a0f !important;
+            font-weight: 700;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.7rem;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 130px 6% 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            background: rgba(108, 99, 255, 0.18);
+            filter: blur(130px);
+            border-radius: 50%;
+            top: 5%;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        .hero-container {
+            max-width: 1250px;
+            width: 100%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border: 1px solid rgba(139,124,255,0.25);
+            background: rgba(108,99,255,0.08);
+            border-radius: 30px;
+            color: #b8b1ff;
+            font-size: 0.82rem;
+            margin-bottom: 24px;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #8b7cff;
+            box-shadow: 0 0 12px #8b7cff;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 6vw, 5.7rem);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            max-width: 800px;
+            margin-bottom: 28px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(100deg, #ffffff, #8f84ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 700;
+            transition: 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #080a0f;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.12);
+        }
+
+        .btn-secondary {
+            border-color: var(--border);
+            color: white;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.07);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           HERO CARD
+        ========================== */
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .website-card {
+            background: linear-gradient(
+                145deg,
+                rgba(255,255,255,0.1),
+                rgba(255,255,255,0.025)
+            );
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 35px 100px rgba(0,0,0,0.45);
+            transform: rotate(2deg);
+            transition: 0.5s ease;
+        }
+
+        .website-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .browser-bar {
+            height: 35px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 10px;
+        }
+
+        .browser-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.25);
+        }
+
+        .mock-site {
+            min-height: 380px;
+            border-radius: 15px;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(108,99,255,0.4), transparent 30%),
+                linear-gradient(135deg, #151a27, #090b11);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mock-line {
+            width: 55%;
+            height: 12px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.15);
+            margin-bottom: 15px;
+        }
+
+        .mock-title {
+            width: 80%;
+            height: 45px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.92);
+            margin-bottom: 18px;
+        }
+
+        .mock-button {
+            width: 120px;
+            height: 40px;
+            border-radius: 8px;
+            background: #7168ff;
+            margin-top: 15px;
+        }
+
+        /* =========================
+           TRUST
+        ========================== */
+
+        .trust {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 30px 6%;
+            background: rgba(255,255,255,0.015);
+        }
+
+        .trust-container {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: 1.7rem;
+        }
+
+        .trust-item span {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================== */
+
+        section {
+            padding: 110px 6%;
+        }
+
+        .section-container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: #8d83ff;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            letter-spacing: -2px;
+            line-height: 1.05;
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            color: var(--gray);
+            max-width: 650px;
+            margin-bottom: 55px;
+        }
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            padding: 35px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(139,124,255,0.4);
+            background: rgba(255,255,255,0.065);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(108,99,255,0.12);
+            color: #a79fff;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.94rem;
+        }
+
+        /* =========================
+           PROCESS
+        ========================== */
+
+        .process {
+            background: #0b0e15;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .process-card {
+            position: relative;
+            padding: 30px;
+            border-left: 1px solid var(--border);
+        }
+
+        .process-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.08);
+            margin-bottom: 20px;
+        }
+
+        .process-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: var(--gray);
+        }
+
+        /* =========================
+           SUPPORT
+        ========================== */
+
+        .support-box {
+            padding: 55px;
+            border-radius: 25px;
+            border: 1px solid rgba(139,124,255,0.25);
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(108,99,255,0.2),
+                    transparent 40%
+                ),
+                rgba(255,255,255,0.025);
+            display: grid;
+            grid-template-columns: 1fr 0.8fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .support-box h2 {
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.05;
+            margin-bottom: 18px;
+        }
+
+        .support-box p {
+            color: var(--gray);
+        }
+
+        .support-list {
+            list-style: none;
+        }
+
+        .support-list li {
+            padding: 13px 0;
+            border-bottom: 1px solid var(--border);
+            color: #d9dce4;
+        }
+
+        .support-list li::before {
+            content: "✓";
+            color: #8b7cff;
+            margin-right: 12px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-card {
+            min-height: 350px;
+            border-radius: 25px;
+            background:
+                radial-gradient(circle at 30% 30%, rgba(108,99,255,0.3), transparent 35%),
+                #0d1119;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .about-initial {
+            font-size: 7rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, white, #756cff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 18px;
+        }
+
+        .about-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .about-role {
+            color: #8b7cff;
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================== */
+
+        .reviews {
+            background: #0b0e15;
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 30px;
+            margin-bottom: 45px;
+        }
+
+        .review-form {
+            max-width: 700px;
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.025);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            color: #cbd0db;
+            font-size: 0.88rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 13px 15px;
+            background: #080a0f;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            color: white;
+            outline: none;
+            transition: 0.25s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #7168ff;
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .review-card {
+            padding: 28px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 17px;
+        }
+
+        .stars {
+            color: #ffc857;
+            letter-spacing: 3px;
+            margin-bottom: 18px;
+        }
+
+        .review-text {
+            color: #d1d5df;
+            margin-bottom: 25px;
+        }
+
+        .review-author {
+            font-weight: 700;
+        }
+
+        .review-date {
+            font-size: 0.75rem;
+            color: #7d8492;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           CTA
+        ========================== */
+
+        .cta {
+            text-align: center;
+        }
+
+        .cta-box {
+            padding: 80px 30px;
+            border-radius: 30px;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(108,99,255,0.25),
+                    transparent 50%
+                ),
+                rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+        }
+
+        .cta-box h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            letter-spacing: -3px;
+            margin-bottom: 18px;
+        }
+
+        .cta-box p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            padding: 35px 6%;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-container {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-text {
+            color: #7f8694;
+            font-size: 0.85rem;
+        }
+
+        .footer-contact {
+            color: #b8bde0;
+            font-size: 0.88rem;
+        }
+
+        /* =========================
+           WHATSAPP
+        ========================== */
+
+        .whatsapp {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: var(--success);
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 1.45rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+            z-index: 900;
+            transition: 0.3s ease;
+        }
+
+        .whatsapp:hover {
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: 0.7s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 950px) {
+
+            .hero-container,
+            .support-box,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .hero-visual {
+                max-width: 700px;
+                margin: auto;
+                width: 100%;
+            }
+
+            .services-grid,
+            .process-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-card {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: 5%;
+                right: 5%;
+                padding: 20px;
+                flex-direction: column;
+                gap: 18px;
+                background: rgba(13,17,25,0.98);
+                border: 1px solid var(--border);
+                border-radius: 15px;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-button {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                letter-spacing: -2.5px;
+            }
+
+            .services-grid,
+            .process-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .support-box {
+                padding: 30px;
+            }
+
+            .reviews-header {
+                display: block;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header id="header">
+        <nav class="nav">
+
+            <a href="#inicio" class="logo">
+                Kevin <span>T5</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#proceso">Proceso</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#reseñas">Reseñas</a></li>
+                <li><a href="#contacto" class="nav-button">Hablemos</a></li>
+            </ul>
+
+            <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">
+                ☰
+            </button>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-container">
+
+                <div class="hero-content reveal">
+
+                    <div class="badge">
+                        <span class="badge-dot"></span>
+                        Diseño web para negocios
+                    </div>
+
+                    <h1>
+                        Tu negocio merece una
+                        <span class="gradient-text">
+                            presencia digital profesional.
+                        </span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Creamos páginas web modernas, profesionales y pensadas
+                        para ayudar a los negocios a presentar sus servicios,
+                        generar confianza y conectar con nuevos clientes.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="https://wa.me/5356939025"
+                            target="_blank"
+                            class="btn btn-primary">
+                            Solicitar mi página
+                        </a>
+
+                        <a
+                            href="#servicios"
+                            class="btn btn-secondary">
+                            Ver servicios
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual reveal">
+
+                    <div class="website-card">
+
+                        <div class="browser-bar">
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                            <span class="browser-dot"></span>
+                        </div>
+
+                        <div class="mock-site">
+
+                            <div class="mock-line"></div>
+
+                            <div class="mock-title"></div>
+
+                            <div class="mock-line" style="width:65%;"></div>
+
+                            <div class="mock-line" style="width:45%;"></div>
+
+                            <div class="mock-button"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TRUST
+        ========================== -->
+
+        <div class="trust">
+
+            <div class="trust-container">
+
+                <div class="trust-item">
+                    <strong>Web</strong>
+                    <span>Diseño profesional</span>
+                </div>
+
+                <div class="trust-item">
+                    <strong>1 mes</strong>
+                    <span>Soporte incluido</span>
+                </div>
+
+                <div class="trust-item">
+                    <strong>100%</strong>
+                    <span>Enfoque personalizado</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SERVICES
+        ========================== -->
+
+        <section id="servicios">
+
+            <div class="section-container">
+
+                <div class="section-label reveal">
+                    Servicios
+                </div>
+
+                <h2 class="section-title reveal">
+                    Más que una página.<br>
+                    Una imagen digital para tu negocio.
+                </h2>
+
+                <p class="section-description reveal">
+                    Diseñamos experiencias web pensadas para que tu negocio
+                    pueda mostrarse de forma clara, moderna y profesional
+                    ante sus clientes.
+                </p>
+
+
+                <div class="services-grid">
+
+                    <article class="service-card reveal">
+
+                        <div class="service-icon">✦</div>
+
+                        <h3>Diseño Web</h3>
+
+                        <p>
+                            Creación de sitios web modernos y personalizados
+                            adaptados a la identidad y necesidades de cada negocio.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-icon">◈</div>
+
+                        <h3>Diseño Responsive</h3>
+
+                        <p>
+                            Tu sitio preparado para verse correctamente en
+                            teléfonos, tablets, laptops y computadoras.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-icon">⌁</div>
+
+                        <h3>Optimización</h3>
+
+                        <p>
+                            Estructuras diseñadas para ofrecer una experiencia
+                            clara, rápida y agradable para tus visitantes.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-icon">◎</div>
+
+                        <h3>Presencia Profesional</h3>
+
+                        <p>
+                            Una presencia digital que ayuda a transmitir
+                            confianza y profesionalismo desde el primer vistazo.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-icon">↗</div>
+
+                        <h3>Conversión</h3>
+
+                        <p>
+                            Llamadas a la acción y secciones estratégicas para
+                            facilitar que los visitantes contacten tu negocio.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-icon">✓</div>
+
+                        <h3>Soporte Incluido</h3>
+
+                        <p>
+                            Después de adquirir tu página con nosotros,
+                            ofrecemos un mes de soporte totalmente gratis.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROCESS
+        ========================== -->
+
+        <section class="process" id="proceso">
+
+            <div class="section-container">
+
+                <div class="section-label reveal">
+                    Cómo trabajamos
+                </div>
+
+                <h2 class="section-title reveal">
+                    Del concepto al sitio web.
+                </h2>
+
+                <p class="section-description reveal">
+                    Un proceso sencillo para transformar la presencia digital
+                    de tu negocio.
+                </p>
+
+
+                <div class="process-grid">
+
+                    <article class="process-card reveal">
+
+                        <div class="process-number">01</div>
+
+                        <h3>Conocemos tu negocio</h3>
+
+                        <p>
+                            Entendemos tus servicios, clientes y objetivos
+                            para definir la dirección del proyecto.
+                        </p>
+
+                    </article>
+
+
+                    <article class="process-card reveal">
+
+                        <div class="process-number">02</div>
+
+                        <h3>Diseñamos tu sitio</h3>
+
+                        <p>
+                            Construimos una experiencia visual moderna,
+                            profesional y adaptada a tu negocio.
+                        </p>
+
+                    </article>
+
+
+                    <article class="process-card reveal">
+
+                        <div class="process-number">03</div>
+
+                        <h3>Publicamos y apoyamos</h3>
+
+                        <p>
+                            Una vez adquirido el sitio, cuentas con un mes
+                            de soporte gratuito.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SUPPORT
+        ========================== -->
+
+        <section>
+
+            <div class="section-container">
+
+                <div class="support-box reveal">
+
+                    <div>
+
+                        <div class="section-label">
+                            Valor añadido
+                        </div>
+
+                        <h2>
+                            Tu relación con nosotros
+                            no termina al entregar la web.
+                        </h2>
+
+                        <p>
+                            Queremos que tu nueva presencia digital funcione
+                            correctamente después de adquirirla. Por eso
+                            incluimos un mes de soporte gratuito.
+                        </p>
+
+                    </div>
+
+
+                    <ul class="support-list">
+
+                        <li>1 mes de soporte gratuito</li>
+                        <li>Acompañamiento después de la entrega</li>
+                        <li>Atención relacionada con tu sitio</li>
+                        <li>Enfoque personalizado para cada negocio</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section id="sobre-mi">
+
+            <div class="section-container">
+
+                <div class="about-grid">
+
+                    <div class="about-card reveal">
+
+                        <div class="about-initial">
+                            K
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content reveal">
+
+                        <div class="section-label">
+                            Sobre Kevin T5
+                        </div>
+
+                        <div class="about-name">
+                            Kevin Hernández Peña
+                        </div>
+
+                        <div class="about-role">
+                            CEO · Kevin T5 Corporation
+                        </div>
+
+                        <p>
+                            Soy Kevin Hernández Peña, CEO de Kevin T5 Corporation,
+                            un negocio dedicado a la creación de páginas web
+                            para negocios.
+                        </p>
+
+                        <p>
+                            Mi objetivo es ayudar a los negocios a construir
+                            una presencia digital profesional mediante sitios
+                            web modernos y bien implementados.
+                        </p>
+
+                        <p>
+                            Además de crear el sitio, ofrecemos soporte durante
+                            un mes totalmente gratis después de la adquisición
+                            de la página.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             REVIEWS
+        ========================== -->
+
+        <section class="reviews" id="reseñas">
+
+            <div class="section-container">
+
+                <div class="reviews-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            Opiniones
+                        </div>
+
+                        <h2 class="section-title">
+                            Lo que dicen nuestros clientes.
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FORMULARIO DE RESEÑA -->
+
+                <form class="review-form" id="reviewForm">
+
+                    <h3 style="margin-bottom:20px;">
+                        ¿Trabajaste con nosotros?
+                    </h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="reviewName">
+                                Nombre
+                            </label>
+
+                            <input
+                                type="text"
+                                id="reviewName"
+                                placeholder="Tu nombre"
+                                required>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="reviewRating">
+                                Calificación
+                            </label>
+
+                            <select id="reviewRating" required>
+
+                                <option value="5">
+                                    ★★★★★ — 5 estrellas
+                                </option>
+
+                                <option value="4">
+                                    ★★★★☆ — 4 estrellas
+                                </option>
+
+                                <option value="3">
+                                    ★★★☆☆ — 3 estrellas
+                                </option>
+
+                                <option value="2">
+                                    ★★☆☆☆ — 2 estrellas
+                                </option>
+
+                                <option value="1">
+                                    ★☆☆☆☆ — 1 estrella
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label for="reviewText">
+                                Tu experiencia
+                            </label>
+
+                            <textarea
+                                id="reviewText"
+                                placeholder="Cuéntanos tu experiencia..."
+                                required></textarea>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+                        Publicar reseña
+                    </button>
+
+                </form>
+
+
+                <!-- RESEÑAS -->
+
+                <div class="reviews-grid" id="reviewsGrid">
+
+                    <article class="review-card">
+
+                        <div class="stars">
+                            ★★★★★
+                        </div>
+
+                        <p class="review-text">
+                            Sé el primero en compartir tu experiencia
+                            trabajando con Kevin T5 Corporation.
+                        </p>
+
+                        <div class="review-author">
+                            Tu próxima reseña
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta" id="contacto">
+
+            <div class="section-container">
+
+                <div class="cta-box reveal">
+
+                    <div class="section-label">
+                        Comencemos
+                    </div>
+
+                    <h2>
+                        ¿Listo para llevar tu negocio a la web?
+                    </h2>
+
+                    <p>
+                        Cuéntame sobre tu negocio y hablemos de cómo podemos
+                        crear una presencia digital profesional para ti.
+                    </p>
+
+                    <div class="hero-buttons"
+                        style="justify-content:center;">
+
+                        <a
+                            href="https://wa.me/5356939025"
+                            target="_blank"
+                            class="btn btn-primary">
+                            Contactar por WhatsApp
+                        </a>
+
+                        <a
+                            href="mailto:kevinempresario6@gmail.com"
+                            class="btn btn-secondary">
+                            Enviar correo
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div class="footer-text">
+                © <span id="year"></span> Kevin T5 Corporation.
+                Todos los derechos reservados.
+            </div>
+
+            <div class="footer-contact">
+                +53 56 93 90 25 · kevinempresario6@gmail.com
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         WHATSAPP
+    ========================== -->
+
+    <a
+        href="https://wa.me/5356939025"
+        target="_blank"
+        class="whatsapp"
+        aria-label="Contactar por WhatsApp">
+
+        ☎
+
+    </a>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           AÑO AUTOMÁTICO
+        ========================== */
+
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+
+        /* =========================
+           MENÚ MÓVIL
+        ========================== */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* =========================
+           HEADER AL HACER SCROLL
+        ========================== */
+
+        const header = document.getElementById("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+
+                header.classList.add("scrolled");
+
+            } else {
+
+                header.classList.remove("scrolled");
+
+            }
+
+        });
+
+
+        /* =========================
+           ANIMACIONES REVEAL
+        ========================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =========================
+           SISTEMA DE RESEÑAS
+           
+           NOTA:
+           Esto guarda las reseñas en el
+           navegador mediante localStorage.
+           
+           Para hacerlas públicas para todos
+           los visitantes será necesario conectar
+           posteriormente una base de datos/backend.
+        ========================== */
+
+        const reviewForm =
+            document.getElementById("reviewForm");
+
+        const reviewsGrid =
+            document.getElementById("reviewsGrid");
+
+
+        function loadReviews() {
+
+            const savedReviews =
+                JSON.parse(
+                    localStorage.getItem("kevinT5Reviews")
+                ) || [];
+
+
+            savedReviews.forEach(review => {
+
+                createReviewCard(review);
+
+            });
+
+        }
+
+
+        function createReviewCard(review) {
+
+            const card =
+                document.createElement("article");
+
+            card.className = "review-card";
+
+            const stars =
+                "★".repeat(review.rating) +
+                "☆".repeat(5 - review.rating);
+
+
+            card.innerHTML = `
+
+                <div class="stars">
+                    ${stars}
+                </div>
+
+                <p class="review-text">
+                    ${escapeHTML(review.text)}
+                </p>
+
+                <div class="review-author">
+                    ${escapeHTML(review.name)}
+                </div>
+
+                <div class="review-date">
+                    Cliente de Kevin T5 Corporation
+                </div>
+
+            `;
+
+
+            reviewsGrid.prepend(card);
+
+        }
+
+
+        function escapeHTML(text) {
+
+            const div =
+                document.createElement("div");
+
+            div.textContent = text;
+
+            return div.innerHTML;
+
+        }
+
+
+        reviewForm.addEventListener("submit", (event) => {
+
+            event.preventDefault();
+
+
+            const name =
+                document.getElementById("reviewName")
+                .value.trim();
+
+            const rating =
+                parseInt(
+                    document.getElementById("reviewRating")
+                    .value
+                );
+
+            const text =
+                document.getElementById("reviewText")
+                .value.trim();
+
+
+            if (!name || !text) {
+
+                alert("Por favor completa todos los campos.");
+
+                return;
+
+            }
+
+
+            const review = {
+
+                name: name,
+
+                rating: rating,
+
+                text: text
+
+            };
+
+
+            const reviews =
+                JSON.parse(
+                    localStorage.getItem("kevinT5Reviews")
+                ) || [];
+
+
+            reviews.push(review);
+
+
+            localStorage.setItem(
+                "kevinT5Reviews",
+                JSON.stringify(reviews)
+            );
+
+
+            createReviewCard(review);
+
+
+            reviewForm.reset();
+
+
+            alert(
+                "¡Gracias por compartir tu experiencia!"
+            );
+
+        });
+
+
+        /* =========================
+           CARGAR RESEÑAS
+        ========================== */
+
+        loadReviews();
+
+    </script>
+
+</body>
+                                                    </html>
